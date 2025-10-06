@@ -1,13 +1,14 @@
 import React from "react";
+import "./Photos.css";
 
 export default function Photos(props) {
   if (props.photos) {
     console.log(props.photos);
     return (
       <section className="Photos">
-        {props.photos.map(function (photo, indexx) {
+        {props.photos.map(function (photo, index) {
           return (
-            <img key={indexx} src={photo.src.landscape} alt={photo.alt || ""} />
+            <img key={index} src={photo.src.landscape} alt={photo.alt || ""} />
           );
         })}
       </section>

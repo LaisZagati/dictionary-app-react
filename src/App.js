@@ -13,7 +13,16 @@ function App() {
           <Dictionary />
         </main>
         <footer className="App-footer">
-          <small>Coded by Lais Zagati</small>
+          <small>
+            Coded by Lais Zagati and it is hosted on{" "}
+            <a
+              href="https://github.com/LaisZagati/dictionary-app-react"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </small>
         </footer>
       </div>
     </div>

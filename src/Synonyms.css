@@ -1,0 +1,27 @@
+.Synonyms {
+    margin: 15px 0 0;
+    padding: 0;
+    display: flex;             /* Use flex for layout */
+    flex-wrap: wrap;           /* Wrap on smaller screens */
+    gap: 8px;                  /* Space between synonyms */
+}
+
+.Synonyms li {
+    display: inline-block;
+    padding: 6px 12px;         /* Modern padding for "chip" style */
+    font-size: 14px;            /* Slightly larger for readability */
+    line-height: 1.2;
+    background-color: #e0f0ff;  /* Light blue background */
+    color: #007bff;             /* Matching accent color */
+    border-radius: 20px;        /* Rounded "pill" look */
+    list-style: none;
+    transition: all 150ms ease-in-out;
+    cursor: default;
+}
+
+.Synonyms li:hover {
+    background-color: #007bff; /* Darker blue on hover */
+    color: #fff;               /* White text on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

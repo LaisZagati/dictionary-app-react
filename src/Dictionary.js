@@ -41,16 +41,19 @@ export default function Dictionary() {
   // 🧩 Render the dictionary search form and the results
   return (
     <div className="Dictionary">
-      <form onSubmit={search}>
-        {/* Input field where user types a word */}
-        <input
-          type="search"
-          value={keyword} // make it controlled
-          onChange={handleKeywordChange}
-          placeholder="Enter a word..."
-          autoFocus
-        />
-      </form>
+      <section>
+        <h1>What are you looking for?</h1>
+        <form onSubmit={search}>
+          {/* Input field where user types a word */}
+          <input
+            type="search"
+            value={keyword} // make it controlled
+            onChange={handleKeywordChange}
+            placeholder="Enter a word..."
+            autoFocus
+          />
+        </form>
+      </section>
 
       {/* Results component will display the API results */}
       <Results results={results} />

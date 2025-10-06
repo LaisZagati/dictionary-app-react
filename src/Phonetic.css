@@ -1,0 +1,34 @@
+.Phonetic {
+  display: flex;
+  align-items: center;       /* Vertically center items */
+  gap: 15px;                 /* Space between link and text */
+  height: 50px;
+  flex-wrap: wrap;           /* Wrap on small screens */
+  margin-bottom: 20px;
+}
+
+.Phonetic a {
+  border: 1px solid #ddd;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 14px;           /* Slightly larger for readability */
+  font-weight: 600;          /* Bold but modern */
+  border-radius: 25px;       /* Rounded pill shape */
+  background-color: #f7f7f7; /* Light neutral background */
+  color: #333;               /* Dark text for contrast */
+  transition: all 200ms ease-in-out;
+}
+
+.Phonetic a:hover {
+  background-color: #9670f4; /* Vibrant hover color */
+  color: white;
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.Phonetic .text {
+  font-weight: 600;
+  color: #555;               /* Softened color for phonetic text */
+  opacity: 0.8;
+  font-size: 16px;
+}

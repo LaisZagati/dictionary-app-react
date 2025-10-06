@@ -1,44 +1,49 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Results from "./Results";
+import Photos from "./Photos";
 import "./Dictionary.css";
 
 export default function Dictionary() {
-  // 🔤 State variable to store the user's input keyword
   let [keyword, setKeyword] = useState("");
-
-  // 📘 State variable to store the dictionary API results
   let [results, setResults] = useState(null);
+  let [photos, setPhotos] = useState(null);
 
-  // 📥 Handles the API response when data is received
-  function handleResponse(response) {
-    console.log(response.data[0]); // log the first result for debugging
+  // Handles the API response when data is received
+  function handleDictionaryResponse(response) {
     setResults(response.data[0]); // save the response data to state
   }
 
-  // 🔎 Called when the user submits the form (presses Enter)
-  // Prevents default page reload and sends API request
+  function handlePexelsResponse(response) {
+    console.log(response);
+    setPhotos(response.data.photos)
+  }
+
+  // Called when the user submits the form (presses Enter)
   function search(event) {
     event.preventDefault(); // stop page from reloading
-    // alert(`Searching for ${keyword} definition`); // optional feedback to user
 
-    // Build API URL dynamically using the entered keyword
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-    console.log(apiUrl); // log for debugging
 
-    // Call the API using axios and handle the response
-    axios.get(apiUrl).then(handleResponse);
+    axios.get(apiUrl).then(handleDictionaryResponse);
 
-    // 🧹 Clear the input field after submitting
+    // Pexels call function
+    let pexelsApiKey = "f093ocaff400a6043tff45112437b840";
+
+    let pexelsApiUrl = `https://api.shecodes.io/images/v1/search?query=${keyword}&key=${pexelsApiKey}`;
+
+    axios.get(pexelsApiUrl).then(handlePexelsResponse);
+
+    //  Clear the input field after submitting
     setKeyword("");
   }
 
-  // ✏️ Updates the keyword state every time the user types in the input
+  //  Updates the keyword state every time the user types in the input
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
   }
 
-  // 🧩 Render the dictionary search form and the results
+  // Render the dictionary search form and the results
   return (
     <div className="Dictionary">
       <section>
@@ -57,6 +62,7 @@ export default function Dictionary() {
 
       {/* Results component will display the API results */}
       <Results results={results} />
+      <Photos photos={photos} />
     </div>
   );
 }

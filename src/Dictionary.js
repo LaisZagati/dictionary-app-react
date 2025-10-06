@@ -28,6 +28,9 @@ export default function Dictionary() {
 
     // Call the API using axios and handle the response
     axios.get(apiUrl).then(handleResponse);
+
+    // 🧹 Clear the input field after submitting
+    setKeyword("");
   }
 
   // ✏️ Updates the keyword state every time the user types in the input
@@ -42,8 +45,10 @@ export default function Dictionary() {
         {/* Input field where user types a word */}
         <input
           type="search"
+          value={keyword} // make it controlled
           onChange={handleKeywordChange}
           placeholder="Enter a word..."
+          autoFocus
         />
       </form>
 
